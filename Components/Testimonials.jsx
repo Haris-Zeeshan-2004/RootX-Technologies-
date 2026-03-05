@@ -111,11 +111,11 @@ export default function Testimonials() {
                 </div>
 
                 {/* Carousel Container */}
-                <div className="relative max-w-6xl mx-auto">
+                <div className="relative  max-w-6xl mx-auto">
                     {/* Navigation Buttons */}
                     <button
                         onClick={handlePrev}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-8 z-30 bg-white/90 backdrop-blur-sm text-gray-800 p-3 sm:p-4 rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-110 border border-gray-200 shadow-lg"
+                        className="absolute hidden sm:block sm:-left-6 top-1/3 sm:top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-8 z-30 bg-white/90 backdrop-blur-sm text-gray-800 p-3 sm:p-4 rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-110 border border-gray-200 shadow-lg"
                         aria-label="Previous testimonial"
                     >
                         <FaChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -123,7 +123,7 @@ export default function Testimonials() {
 
                     <button
                         onClick={handleNext}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-8 z-30 bg-white/90 backdrop-blur-sm text-gray-800 p-3 sm:p-4 rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-110 border border-gray-200 shadow-lg"
+                        className="absolute right-0 hidden sm:block  top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-8 z-30 bg-white/90 backdrop-blur-sm text-gray-800 p-3 sm:p-4 rounded-full hover:bg-gray-100 transition-all duration-300 hover:scale-110 border border-gray-200 shadow-lg"
                         aria-label="Next testimonial"
                     >
                         <FaChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />

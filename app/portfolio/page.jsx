@@ -8,6 +8,7 @@ import Testimonials from "@/Components/Testimonials";
 export default function PortfolioPage() {
     const [activeFilter, setActiveFilter] = useState("All");
     const [isVisible, setIsVisible] = useState(false);
+    const [touchedCard, setTouchedCard] = useState(null);
     const sectionRef = useRef(null);
 
     const categories = ["All", "Financial Platform", "Productivity Suite", "E-commerce", "HR Management", "Transportation", "Gaming"];
@@ -203,8 +204,10 @@ export default function PortfolioPage() {
                         {filteredProjects.map((project, index) => (
                             <div
                                 key={project.id}
-                                className="group relative bg-white/5 backdrop-blur-md border border-gray-200 rounded-3xl overflow-hidden hover:border-[#00346C]/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00346C]/20"
+                                className={`group relative bg-white/5 backdrop-blur-md border border-gray-200 rounded-3xl overflow-hidden hover:border-[#00346C]/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00346C]/20 ${touchedCard === project.id ? 'touched' : ''}`}
                                 style={{ transitionDelay: `${index * 100}ms` }}
+                                onTouchStart={() => setTouchedCard(project.id)}
+                                onTouchEnd={() => setTimeout(() => setTouchedCard(null), 3000)}
                             >
                                 {/* Product Image */}
                                 <div className="relative w-full cursor-pointer h-[380px] sm:h-[400px] md:h-[360px] lg:h-[400px] overflow-hidden">
@@ -217,19 +220,19 @@ export default function PortfolioPage() {
                                     />
 
                                     {/* Overlay - Shows on Hover with slide up animation */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/95 via-[#2b4a6b]/85 to-[#1e3a5f]/70 translate-y-full group-hover:translate-y-0 transition-all duration-700 ease-out flex flex-col justify-end p-6 sm:p-8">
+                                    <div className={`absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/95 via-[#2c4a6b]/85 to-[#1e3a5f]/70 translate-y-full group-hover:translate-y-0 transition-all duration-700 ease-out flex flex-col justify-end p-6 sm:p-8 ${touchedCard === project.id ? '!translate-y-0' : ''}`}>
                                         {/* Category Badge */}
-                                        <div className="inline-block self-start px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 bg-white/20 backdrop-blur-sm text-white border border-white/30 shadow-lg transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 font-body">
+                                        <div className={`inline-block self-start px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 bg-white/20 backdrop-blur-sm text-white border border-white/30 shadow-lg transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 font-body ${touchedCard === project.id ? '!translate-y-0 !opacity-100' : ''}`}>
                                             {project.category}
                                         </div>
 
                                         {/* Project Name */}
-                                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-200 font-body">
+                                        <h3 className={`text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-200 font-body ${touchedCard === project.id ? '!translate-y-0 !opacity-100' : ''}`}>
                                             {project.title}
                                         </h3>
 
                                         {/* Description */}
-                                        <p className="text-sm sm:text-base text-white/90 leading-relaxed mb-6 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-300 font-body">
+                                        <p className={`text-sm sm:text-base text-white/90 leading-relaxed mb-6 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-300 font-body ${touchedCard === project.id ? '!translate-y-0 !opacity-100' : ''}`}>
                                             {project.description}
                                         </p>
 
@@ -240,13 +243,13 @@ export default function PortfolioPage() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <button className="w-full px-6 py-3 bg-white text-[#00346C] hover:bg-gray-100 font-semibold rounded-xl shadow-lg hover:shadow-xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-400 text-sm sm:text-base font-body">
+                                                <button className={`w-full px-6 py-3 bg-white text-[#00346C] hover:bg-gray-100 font-semibold rounded-xl shadow-lg hover:shadow-xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-400 text-sm sm:text-base font-body ${touchedCard === project.id ? '!translate-y-0 !opacity-100' : ''}`}>
                                                     View on Play Store
                                                 </button>
                                             </a>
                                         ) : (
                                             <Link href={project.link}>
-                                                <button className="w-full px-6 py-3 bg-white text-[#00346C] hover:bg-gray-100 font-semibold rounded-xl shadow-lg hover:shadow-xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-400 text-sm sm:text-base font-body">
+                                                <button className={`w-full px-6 py-3 bg-white text-[#00346C] hover:bg-gray-100 font-semibold rounded-xl shadow-lg hover:shadow-xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-400 text-sm sm:text-base font-body ${touchedCard === project.id ? '!translate-y-0 !opacity-100' : ''}`}>
                                                     View Project Details
                                                 </button>
                                             </Link>
@@ -315,7 +318,7 @@ export default function PortfolioPage() {
                                     number: "1",
                                     title: "Requirement",
                                     icon: (
-                                        <div className="relative w-16 h-16  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
+                                        <div className="relative w-14 h-14  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
                                             <Image
                                                 src="/analysis-1.png"
                                                 alt="Satisfaction Rate"
@@ -329,7 +332,7 @@ export default function PortfolioPage() {
                                     number: "2",
                                     title: "UI/UX Design",
                                     icon: (
-                                        <div className="relative w-16 h-16  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
+                                        <div className="relative w-14 h-14  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
                                             <Image
                                                 src="/ui-design.png"
                                                 alt="Satisfaction Rate"
@@ -343,7 +346,7 @@ export default function PortfolioPage() {
                                     number: "3",
                                     title: "Development",
                                     icon: (
-                                        <div className="relative w-16 h-16  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
+                                        <div className="relative w-14 h-14  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
                                             <Image
                                                 src="/pro.png"
                                                 alt="Satisfaction Rate"
@@ -357,7 +360,7 @@ export default function PortfolioPage() {
                                     number: "4",
                                     title: "Testing",
                                     icon: (
-                                        <div className="relative w-16 h-16  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
+                                        <div className="relative w-14 h-14  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
                                             <Image
                                                 src="/QA.png"
                                                 alt="Satisfaction Rate"
@@ -371,7 +374,7 @@ export default function PortfolioPage() {
                                     number: "5",
                                     title: "Deployment",
                                     icon: (
-                                       <div className="relative w-16 h-16  sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
+                                       <div className="relative w-14 h-14 sm:w-15 sm:h-15" style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))' }}>
                                             <Image
                                                 src="/dep.png"
                                                 alt="Satisfaction Rate"

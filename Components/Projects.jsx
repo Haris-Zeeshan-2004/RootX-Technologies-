@@ -149,7 +149,7 @@ export default function Projects() {
               viewport={{ once: true }}
             >
               <Link
-                href="/projects"
+                href="/portfolio"
                 className="inline-flex items-center justify-center gap-2 bg-blue-900 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold font-body hover:bg-blue-800 transition-all duration-300 shadow-[0_0_20px_rgba(30,58,138,0.3)] hover:shadow-[0_0_30px_rgba(30,58,138,0.5)] transform hover:scale-105 text-sm sm:text-base w-full"
               >
                 View All Projects

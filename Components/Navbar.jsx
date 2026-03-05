@@ -116,24 +116,29 @@ export default function Navbar() {
           
           <div className="relative space-y-2">
             {navLinks.map((link, index) => (
-              <Link
+              <div
                 key={link.name}
-                href={link.href}
-                className={`block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg font-bold transition-all duration-300 transform ${
-                  isMenuOpen 
-                    ? "translate-x-0 opacity-100" 
-                    : "-translate-x-4 opacity-0"
-                }`}
-                style={{
-                  transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms'
+                onClick={() => {
+                  setIsMenuOpen(false);
                 }}
-                onClick={() => setIsMenuOpen(false)}
               >
-                {link.name}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={`block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg font-bold transition-all duration-300 transform ${
+                    isMenuOpen 
+                      ? "translate-x-0 opacity-100" 
+                      : "-translate-x-4 opacity-0"
+                  }`}
+                  style={{
+                    transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms'
+                  }}
+                >
+                  {link.name}
+                </Link>
+              </div>
             ))}
             <Link
-              href="/contact"
+              href="/Contact"
               className={`block text-center text-white px-4 py-3 rounded-full font-bold transition-all duration-300 mt-4 transform font-body ${
                 isMenuOpen 
                   ? "translate-y-0 opacity-100" 
