@@ -18,7 +18,7 @@ export default function Projects() {
       title: "Aconomy",
       category: "Financial Platform",
       description: "A sophisticated financial management platform offering advanced analytics and portfolio tracking for modern businesses.",
-      image: "/Aconomy 1.png",
+      image: "/Aconomy.webp",
       gradient: "from-blue-900 to-cyan-600",
       color: "#00346C"
     },
