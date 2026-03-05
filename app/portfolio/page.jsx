@@ -206,8 +206,13 @@ export default function PortfolioPage() {
                                 key={project.id}
                                 className={`group relative bg-white/5 backdrop-blur-md border border-gray-200 rounded-3xl overflow-hidden hover:border-[#00346C]/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00346C]/20 ${touchedCard === project.id ? 'touched' : ''}`}
                                 style={{ transitionDelay: `${index * 100}ms` }}
-                                onTouchStart={() => setTouchedCard(project.id)}
-                                onTouchEnd={() => setTimeout(() => setTouchedCard(null), 3000)}
+                                onTouchStart={() => {
+                                    if (touchedCard === project.id) {
+                                        setTouchedCard(null);
+                                    } else {
+                                        setTouchedCard(project.id);
+                                    }
+                                }}
                             >
                                 {/* Product Image */}
                                 <div className="relative w-full cursor-pointer h-[380px] sm:h-[400px] md:h-[360px] lg:h-[400px] overflow-hidden">
