@@ -88,9 +88,9 @@ export default function TechStack() {
   ];
 
   const TechCard = ({ tech }) => (
-    <div className={`flex-shrink-0 mx-2 md:mx-3 ${tech.color} rounded-2xl px-4 py-2.5 md:px-5 md:py-3 shadow-lg ${tech.shadow} hover:shadow-xl transition-all duration-300 transform hover:scale-105`}>
-      <div className="flex items-center gap-2 md:gap-3">
-        <div className="relative w-6 h-6 md:w-8 md:h-8 flex-shrink-0">
+    <div className={`flex-shrink-0 mx-2 md:mx-3 ${tech.color} rounded-2xl px-6 py-3 md:px-8 md:py-4 transition-all duration-300 transform hover:scale-105`}>
+      <div className="flex items-center gap-3 md:gap-4">
+        <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0">
           <Image
             src={tech.icon}
             alt={tech.name}
@@ -98,7 +98,7 @@ export default function TechStack() {
             className="object-contain"
           />
         </div>
-        <span className="text-xs md:text-sm font-bold text-gray-800 whitespace-nowrap">
+        <span className="text-base md:text-lg lg:text-xl font-bold text-gray-800 whitespace-nowrap font-body">
           {tech.name}
         </span>
       </div>
@@ -114,8 +114,8 @@ export default function TechStack() {
       </div>
 
       <div className="w-full space-y-4 md:space-y-6">
-        {/* Row 1 - Left to Right - Light Yellow/Cream Background */}
-        <div className="relative overflow-hidden bg-yellow-50 py-4 md:py-5 w-full">
+        {/* Row 1 - Left to Right */}
+        <div className="relative overflow-hidden py-4 md:py-5 w-full">
           <div className="embla" ref={emblaRef1}>
             <div className="embla__container flex">
               {[...row1Technologies, ...row1Technologies, ...row1Technologies].map((tech, index) => (
@@ -127,8 +127,8 @@ export default function TechStack() {
           </div>
         </div>
 
-        {/* Row 2 - Right to Left - Light Blue Background */}
-        <div className="relative overflow-hidden bg-blue-50 py-4 md:py-5 w-full">
+        {/* Row 2 - Right to Left */}
+        <div className="relative overflow-hidden py-4 md:py-5 w-full">
           <div className="embla" ref={emblaRef2}>
             <div className="embla__container flex">
               {[...row2Technologies, ...row2Technologies, ...row2Technologies].map((tech, index) => (
@@ -140,8 +140,8 @@ export default function TechStack() {
           </div>
         </div>
 
-        {/* Row 3 - Left to Right - Light Green/Cyan Background */}
-        <div className="relative overflow-hidden bg-cyan-50 py-4 md:py-5 w-full">
+        {/* Row 3 - Left to Right */}
+        <div className="relative overflow-hidden py-4 md:py-5 w-full">
           <div className="embla" ref={emblaRef3}>
             <div className="embla__container flex">
               {[...row3Technologies, ...row3Technologies, ...row3Technologies].map((tech, index) => (
@@ -153,8 +153,8 @@ export default function TechStack() {
           </div>
         </div>
 
-        {/* Row 4 - Right to Left - Light Purple Background */}
-        <div className="relative overflow-hidden bg-purple-50 py-4 md:py-5 w-full">
+        {/* Row 4 - Right to Left */}
+        <div className="relative overflow-hidden py-4 md:py-5 w-full">
           <div className="embla" ref={emblaRef4}>
             <div className="embla__container flex">
               {[...row4Technologies, ...row4Technologies, ...row4Technologies].map((tech, index) => (

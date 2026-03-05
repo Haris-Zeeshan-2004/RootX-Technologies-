@@ -115,14 +115,14 @@ export default function Services() {
 
                 {/* Description - Always at bottom when active */}
                 <div
-                  className={`flex-shrink-0 mt-15 md:mt-10 transition-all duration-500 ease-in-out overflow-hidden ${
+                  className={`flex-shrink-0 mt-2 transition-all duration-700 ease-in-out overflow-hidden ${
                     activeService === index
-                      ? "max-h-96 opacity-100 translate-y-0"
-                      : "max-h-0 opacity-0 translate-y-4"
+                      ? "max-h-[500px] opacity-100 translate-y-0"
+                      : "max-h-0 opacity-0 translate-y-8"
                   }`}
                 >
-                  <p className={`text-base md:text-lg lg:text-xl leading-relaxed font-normal transition-opacity duration-700 delay-200 ${
-                    activeService === index ? "opacity-100" : "opacity-0"
+                  <p className={`text-base md:text-lg lg:text-xl leading-relaxed font-normal transition-all duration-700 ease-in-out ${
+                    activeService === index ? "opacity-100 delay-300" : "opacity-0"
                   }`}>
                     {service.description}
                   </p>

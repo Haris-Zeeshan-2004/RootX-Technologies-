@@ -39,13 +39,31 @@ export default function Projects() {
       image: "/Salharo.webp",
       gradient: "from-blue-900 to-cyan-700",
       color: "#00346C"
-    }
+    },
+    {
+      id: 4,
+      title: "Wise1HRM",
+      category: "HR Management",
+      description: "Complete human resource management system with employee tracking and payroll management features.",
+      image: "/Wise1HRM.webp",
+      gradient: "from-blue-900 to-cyan-600",
+      color: "#00346C"
+    },
+    {
+      id: 5,
+      title: "Appointzme",
+      category: "Appointment Booking",
+      description: "Smart appointment scheduling platform that simplifies booking management and enhances customer engagement.",
+      image: "/with name.png",
+      gradient: "from-blue-800 to-teal-600",
+      color: "#00346C"
+    },
   ];
 
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
       <main ref={container}>
-        <section id="portfolio" className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white min-h-[150vh] sm:min-h-[180vh] md:min-h-[200vh]">
+        <section id="portfolio" className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 sm:mb-12 md:mb-16 gap-4">
@@ -84,7 +102,7 @@ export default function Projects() {
                 viewport={{ once: true }}
               >
                 <Link
-                  href="/projects"
+                  href="/portfolio"
                   className="inline-flex items-center justify-center gap-2 bg-blue-950 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold font-body  transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 text-sm sm:text-base"
                 >
                   View All Projects
@@ -106,7 +124,7 @@ export default function Projects() {
             </div>
 
             {/* Projects Cards with Advanced Sticky Motion Effect */}
-            <div className="space-y-6 sm:space-y-8 md:space-y-16">
+            <div className="space-y-12 sm:space-y-16 md:space-y-16 mb-24 sm:mb-32 md:mb-0">
               {projects.map((project, index) => {
                 const targetScale = 1 - (projects.length - index) * 0.05;
                 return (
@@ -124,7 +142,7 @@ export default function Projects() {
 
             {/* View All Projects Button - Mobile Only (After Cards) */}
             <motion.div 
-              className="block md:hidden mt-8 sm:mt-12"
+              className="block md:hidden mt-20 sm:mt-24 pb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -205,7 +223,7 @@ const ProjectCard = ({ project, index, progress, range, targetScale }) => {
             {/* Title at Top */}
             <div>
               <motion.h3 
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-body leading-tight" 
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-body leading-tight"
                 style={{ color: 'white' }}
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -267,7 +285,16 @@ const ProjectCard = ({ project, index, progress, range, targetScale }) => {
             }}
             viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="relative w-full max-w-xs sm:max-w-sm aspect-square rounded-3xl sm:rounded-[3rem] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <div 
+              className={`relative w-full aspect-square rounded-3xl sm:rounded-[3rem] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3)] ${
+                project.id === 1 ? "max-w-[280px] sm:max-w-[320px]" :
+                project.id === 2 ? "max-w-[310px] sm:max-w-[370px]" :
+                project.id === 3 ? "max-w-[340px] sm:max-w-[420px]" :
+                project.id === 4 ? "max-w-[370px] sm:max-w-[470px]" :
+                project.id === 5 ? "max-w-[400px] sm:max-w-[520px]" :
+                "max-w-xs sm:max-w-sm"
+              }`}
+            >
               <motion.div
                 style={{ scale: imageScale }}
                 className="w-full h-full"

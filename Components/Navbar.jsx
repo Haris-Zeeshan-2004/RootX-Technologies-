@@ -61,7 +61,7 @@ export default function Navbar() {
           {/* Contact Button - Desktop */}
           <div className="hidden md:block">
             <Link
-              href="/contact"
+              href="/Contact"
               className="text-white px-6 py-2.5 rounded-full font-medium transition-colors duration-200 text-sm lg:text-base font-body"
               style={{ backgroundColor: '#00346C' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#002a57'}

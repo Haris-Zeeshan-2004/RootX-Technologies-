@@ -114,3 +114,17 @@ h1, h2, h4, h5, h6 {
 .animate-scroll-right-2:hover {
   animation-play-state: paused;
 }
+
+/* Floating Animation for AboutUs */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
